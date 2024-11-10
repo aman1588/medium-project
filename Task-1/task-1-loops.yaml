@@ -10,7 +10,7 @@
   tasks:
     - name: Creating 3 instances (2 ubuntu and 1 amazon amazon-linux) via loops
       amazon.aws.ec2_instance:
-        name: "{{ item.name }} }}"
+        name: "{{ item.name }}"
         key_name: ansible
         region: ap-south-1
         instance_type: t2.micro
