@@ -14,10 +14,10 @@
         security_group: default
         aws_access_key: "{{ec2_access_key}}"
         aws_secret_key: "{{ec2_secret_key}}"
-        network: 
+        network:
           assign_public_ip: true
         image_id: "ami-0dee22c13ea7a9a67"
-    
+
     - name: Start an instance with public-IP (ubuntu)
       amazon.aws.ec2_instance:
         name: "ansible-instance-2"
@@ -27,7 +27,7 @@
         security_group: default
         aws_access_key: "{{ec2_access_key}}"
         aws_secret_key: "{{ec2_secret_key}}"
-        network: 
+        network:
           assign_public_ip: true
         image_id: "ami-0dee22c13ea7a9a67"
 
@@ -40,6 +40,6 @@
         security_group: default
         aws_access_key: "{{ec2_access_key}}"
         aws_secret_key: "{{ec2_secret_key}}"
-        network: 
+        network:
           assign_public_ip: true
         image_id: "ami-08bf489a05e916bbd"
