@@ -6,7 +6,7 @@
   gather_facts: no
   vars_files:
     - /home/ubuntu/medium-project/vault/confidential.yaml
-  
+
   tasks:
     - name: Creating 3 instances (2 ubuntu and 1 amazon amazon-linux) via loops
       amazon.aws.ec2_instance:
@@ -23,4 +23,4 @@
       loop:
         - { image: "ami-0dee22c13ea7a9a67", name: "manager-node-1" }
         - { image: "ami-0dee22c13ea7a9a67", name: "manager-node-2" }
-        - { image: "ami-08bf489a05e916bbd", name" "manager-node-3" }
+        - { image: "ami-08bf489a05e916bbd", name: "manager-node-3" }
