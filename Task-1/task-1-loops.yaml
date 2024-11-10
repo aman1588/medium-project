@@ -1,0 +1,26 @@
+---
+- name: To create 3 ec2 Instances
+  hosts: localhost
+  connection: local
+  become: no
+  gather_facts: no
+  vars_files:
+    - /home/ubuntu/medium-project/vault/confidential.yaml
+  
+  tasks:
+    - name: Creating 3 instances (2 ubuntu and 1 amazon amazon-linux) via loops
+      amazon.aws.ec2_instance:
+        name: "{{ item.name }} }}"
+        key_name: ansible
+        region: ap-south-1
+        instance_type: t2.micro
+        security_group: default
+        aws_access_key: "{{ ec2_access_key }}"
+        aws_secret_key: "{{ ec2_secret_key }}"
+        network:
+          assign_public_ip: true
+        image_id: "{{ item.image }}"
+      loop:
+        - { image: "ami-0dee22c13ea7a9a67", name: "manager-node-1" }
+        - { image: "ami-0dee22c13ea7a9a67", name: "manager-node-2" }
+        - { image: "ami-08bf489a05e916bbd", name" "manager-node-3" }
